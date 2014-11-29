@@ -1,0 +1,24 @@
+tf1.cfg
+==============
+1. Handle duplicate request for transfer (retransmit same reply)
+2. Handle InsufficientFunds for transfer (create account if new, update history at all servers,
+send reply from tail)
+
+tf2.cfg
+==============
+1. Successful transfer in absence of failures, with both banks receiving pseudo-random
+deposits and withdrawals from other clients while transfer is in progress.
+
+tf3.cfg
+==============
+1. Successful transfer when head of bank2 fails immediately after receiving the transfer
+request. to complete the transfer, a bank1 server needs to re-send the transfer request
+to the new head of bank2
+
+tf4.cfg
+==============
+1. Successful transfer when the bank1 server s1 that sends the transfer request to head of
+bank2 fails immediately after sending it, and head of bank2 fails immediately after
+receiving it. to complete the transfer, another bank1 server s1' needs to re-send the
+transfer request to the new head of bank2. (in the suggested design for the transfer
+operation, s1 is the original tail of bank1, and s1' is the predecessor of s1.)
